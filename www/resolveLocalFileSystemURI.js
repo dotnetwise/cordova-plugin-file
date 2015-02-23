@@ -58,6 +58,7 @@ module.exports.resolveLocalFileSystemURL = function(uri, successCallback, errorC
                         fs = new FileSystem(fsName, {name:"", fullPath:"/"});
                     }
                     var result = (entry.isDirectory) ? new DirectoryEntry(entry.name, entry.fullPath, fs, entry.nativeURL) : new FileEntry(entry.name, entry.fullPath, fs, entry.nativeURL);
+                    result.mimeType = entry.mimeType;
                     successCallback(result);
                 });
             }
